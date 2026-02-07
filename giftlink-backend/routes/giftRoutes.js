@@ -1,4 +1,7 @@
+const express = require('express');
+const router = express.Router();
 const connectToDatabase = require("../models/db");
+const logger = require ('../logger');
 
 router.get('/', async (req, res) => {
     try {
@@ -8,7 +11,7 @@ router.get('/', async (req, res) => {
 
         // Task 2: use the collection() method to retrieve the gift collection
         // {{insert code here}}
-        const collection = db.collections("gifts");
+        const collection = db.collection("gifts");
 
         // Task 3: Fetch all gifts using the collection.find method. Chain with toArray method to convert to JSON array
         // const gifts = {{insert code here}}
@@ -31,7 +34,7 @@ router.get('/:id', async (req, res) => {
 
         // Task 2: use the collection() method to retrieve the gift collection
         // {{insert code here}}
-        const collection = db.collections("gifts");
+        const collection = db.collection("gifts");
 
         const id = req.params.id;
 
