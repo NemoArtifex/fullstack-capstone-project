@@ -31,7 +31,7 @@ function LoginPage() {
          const res = await fetch(`${urlConfig.backendUrl}/api/auth/login`, {
             method: 'POST',
             headers: {
-                'content-type': 'application.json',
+                'content-type': 'application/json',
                 'Authorization': bearerToken ? `Bearer ${bearerToken}` : '', 
             },
          body: JSON.stringify({
