@@ -1,4 +1,4 @@
-2/10/26
+/* 2/10/26; updated 2/11/26 */
 // app.js
 /*jshint esversion: 8 */
 
@@ -9,6 +9,7 @@ const pinoLogger = require('./logger');
 
 const connectToDatabase = require('./models/db');
 const {loadData} = require("./util/import-mongo/index");
+
 
 // added line
 
@@ -27,15 +28,17 @@ app.use(express.json());
 
 //   Route files
 const giftRoutes = require('./routes/giftRoutes');
+const authRoutes = require('./routes/authRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 const pinoHttp = require('pino-http');
 const logger = require('./logger');
 
 app.use(pinoHttp({ logger }));
 
-// Use Routes for gift and search
+// Use Routes for gift,search and authorization
 app.use('/api/gifts', giftRoutes);
 app.use('/api/search', searchRoutes);
+app.use('/api/auth', authRoutes);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
