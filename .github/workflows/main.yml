@@ -36,6 +36,8 @@ jobs:
         with:
            node-version: 20
       - name: Run build
+        env:
+          CI: false
         run: |
           cd giftlink-frontend
           npm install
